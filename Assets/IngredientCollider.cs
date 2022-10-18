@@ -11,7 +11,6 @@ public class IngredientCollider : MonoBehaviour
         if (other.gameObject.CompareTag("TopCollider"))
         {
             Debug.Log("Cant move");
-            movement.isMoving = false;
         }
     }
 }
