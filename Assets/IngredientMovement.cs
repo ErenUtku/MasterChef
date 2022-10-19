@@ -27,7 +27,7 @@ public class IngredientMovement : MonoBehaviour
         {
             mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
             mOffset = gameObject.transform.position - GetMouseWorldPos();
-
+            
             //Floating
             transform.DOMoveZ(floatDensity, floatTime).OnComplete(() => { mOffset.z = floatDensity; });
             //End Floating
@@ -42,7 +42,7 @@ public class IngredientMovement : MonoBehaviour
         if (!isSelected)
         {
             var newVector = (GetMouseWorldPos() + mOffset);
-            transform.position = (GetMouseWorldPos() + mOffset);
+            transform.position = new Vector3(newVector.x, newVector.y, floatDensity);
         }
     }
 

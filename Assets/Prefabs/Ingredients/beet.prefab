@@ -592,7 +592,7 @@ MonoBehaviour:
   ingredientThrow: {fileID: 2799142283192247223}
   ingredientSelect: {fileID: 8861011417543085414}
   floatDensity: -1
-  floatTime: 0.5
+  floatTime: 1
   borderX: 2.5
   borderY: 2.5
   isSelected: 0

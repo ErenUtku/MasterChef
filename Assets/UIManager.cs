@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Order;
 using TMPro;
+using Data;
 
 public class UIManager : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class UIManager : MonoBehaviour
     private Receipt levelReceipt;
     private void Start()
     {
-        levelReceipt = LevelFacade.instance.levelReceipt;
+        levelReceipt = StoreReceiptData.instance.receiptData;
         InstantiateReceipt(levelReceipt);
         orderName.text = levelReceipt.receiptName;
     }

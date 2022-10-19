@@ -10,33 +10,20 @@ namespace Data
 {
     public class StoreReceiptData : MonoBehaviour
     {
-        public Receipt receiptData;
-        private Receipt defaultReceipt;
+        [Header("ReceiptData")]
+        [SerializeField] private Receipt defaultReceipt;
+        [HideInInspector] public Receipt receiptData;
 
         public static StoreReceiptData instance;
         private void Awake()
         {
             instance = this;
-        }
 
-        private void Start()
-        {
             Deseralize();
 
             var jsonString = JsonConvert.SerializeObject(receiptData);
 
             PlayerPrefs.SetString("Save Data", jsonString);
-        }
-
-
-        public void SaveData()
-        {
-            //DO no update Level Count
-            var jsonString = JsonConvert.SerializeObject(receiptData);
-            //Debug.Log(jsonString);
-            PlayerPrefs.SetString("Save Data", jsonString);
-            
-            Debug.Log(jsonString);
         }
 
         private void Deseralize()

@@ -11,7 +11,6 @@ namespace Order
     {
         public string receiptName;
         public IngredientAmount[] ingredients;
-        public GameObject resultFood;
     }
 }
 
