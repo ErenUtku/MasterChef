@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 public class IngredientMovement : MonoBehaviour
 {
-    [Header("Ingredient Alt Movements")]
+    [Header("Items Alt Movements")]
     [SerializeField] private IngredientThrow ingredientThrow;
     [SerializeField] private IngredientSelect ingredientSelect;
 

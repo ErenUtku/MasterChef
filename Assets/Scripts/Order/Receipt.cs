@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Ingredient;
+using Items;
 
 namespace Order
 {
@@ -11,15 +11,16 @@ namespace Order
     {
         public string receiptName;
         public IngredientAmount[] ingredients;
+        public GameObject resultFood;
     }
 }
 
 namespace Order
 {
     [Serializable]
-    public struct IngredientAmount
+    public class IngredientAmount
     {
-        public IngredientData ingredient;
+        public IngredientData ingredientData;
         public int amount;
     }
 }
