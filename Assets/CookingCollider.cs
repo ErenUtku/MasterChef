@@ -15,7 +15,6 @@ public class CookingCollider : MonoBehaviour
         if (other.gameObject.CompareTag("Ingredient"))
         {
             var ingredient = other.gameObject.GetComponentInParent<Ingredient>();
-            Debug.Log("Yes check me");
 
             cookingManager.CheckIngredient(ingredient);
 

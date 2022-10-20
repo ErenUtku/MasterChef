@@ -12,17 +12,20 @@ public class IngredientSelect : MonoBehaviour
     private bool isTimeCheckAllowed = true;
     private int clickNumber = 0;
 
-    public bool isObjectActive;
+    public bool isObjectSelectable;
 
-    [SerializeField] private IngredientMovement ingredientMovement;
-   
+    private IngredientMovement _ingredientMovement;
+
+    private void Start()
+    {
+        _ingredientMovement = GetComponent<IngredientMovement>();
+    }
     private void Update()
     {
-        if (!isObjectActive) return;
+        if (!isObjectSelectable) return;
 
         if (Input.GetMouseButtonUp(0))
         {
-            Debug.Log("Im up " + gameObject.name);
             clickNumber++;
 
             if (clickNumber == 1 && isTimeCheckAllowed)
@@ -40,8 +43,8 @@ public class IngredientSelect : MonoBehaviour
         {
             if (clickNumber == 2)
             {
-                ingredientMovement.isSelected = true;
-                ingredientMovement.KillDoTweens();
+                _ingredientMovement.isSelected = true;
+                _ingredientMovement.KillDoTweens();
                 
                 transform.DOMove(LevelFacade.instance.targetPanTransform.transform.position, 2f);
 
@@ -54,7 +57,7 @@ public class IngredientSelect : MonoBehaviour
         }
 
         clickNumber = 0;
-        isObjectActive = false;
+        isObjectSelectable = false;
         isTimeCheckAllowed = true;
         
     }

@@ -19,14 +19,14 @@ namespace Data
         {
             instance = this;
 
-            Deseralize();
+            BringOldReceiptData();
 
             var jsonString = JsonConvert.SerializeObject(receiptData);
 
             PlayerPrefs.SetString("Save Data", jsonString);
         }
 
-        private void Deseralize()
+        private void BringOldReceiptData()
         {
             var jsonString = PlayerPrefs.GetString("Save Data");
 

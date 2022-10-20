@@ -7,29 +7,38 @@ using Data;
 public class CookingManager : MonoBehaviour
 {
     private LevelFacade levelFacade;
-    private StoreReceiptData receiptData;
+    private Receipt receiptData;
 
     private void Start()
     {
         levelFacade = LevelFacade.instance;
-        receiptData = StoreReceiptData.instance;
+        receiptData = StoreReceiptData.instance.receiptData;
     }
 
     public void CheckIngredient(Ingredient ingredient)
     {
-        foreach (var receiptIngredient in receiptData.receiptData.ingredients)
+        foreach (var receiptIngredient in receiptData.ingredients)
         {
             if(ingredient.ingredientData.ingredientName == receiptIngredient.ingredientData.ingredientName)
             {
+                if (receiptIngredient.amount == 0)
+                {
+                    ThrowObjectBack(ingredient);
+                    return;
+                }
+
                 if (receiptIngredient.amount > 0)
                 {
                     DecreaseAmount(receiptIngredient);
-                    return;
                 }
+
+                if(receiptIngredient.amount == 0)
+                {
+                    Invoke(nameof(CheckCookingDone),2f);
+                }              
             }
 
-            ThrowObjectBack(ingredient.gameObject);
-            return;
+            
         }
     }
 
@@ -38,10 +47,37 @@ public class CookingManager : MonoBehaviour
         ingredient.amount--;
     }
 
-    private void ThrowObjectBack(GameObject ingredient)
+    private void CheckCookingDone()
     {
-        Debug.Log("Check AddForce Later");
-        ingredient.GetComponent<Rigidbody>().AddForce(Vector3.back);
+        if (CookingIsDone(receiptData.ingredients))
+        {
+            Debug.Log("Level finished");
+            return;
+        }
+
+        Debug.Log("Level is NOT finished");
+        return;
+    }
+
+    private void ThrowObjectBack(Ingredient ingredient)
+    {
+        var ingredientMovement = ingredient.gameObject.GetComponent<IngredientMovement>();
+
+        ingredientMovement.ThrowBack();
+        
+    }
+
+    private bool CookingIsDone(IngredientAmount[] ingredients)
+    {
+        foreach (var ingredient in ingredients)
+        {
+            if (ingredient.amount != 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 

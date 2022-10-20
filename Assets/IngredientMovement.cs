@@ -5,8 +5,8 @@ using DG.Tweening;
 public class IngredientMovement : MonoBehaviour
 {
     [Header("Items Alt Movements")]
-    [SerializeField] private IngredientThrow ingredientThrow;
-    [SerializeField] private IngredientSelect ingredientSelect;
+    private IngredientThrow _ingredientThrow;
+    private IngredientSelect _ingredientSelect;
 
     [Header("Floating Values")]
     [SerializeField] private float floatDensity = -2f;
@@ -19,7 +19,15 @@ public class IngredientMovement : MonoBehaviour
     private Vector3 mOffset;
     private float mZCoord;
 
+    private Rigidbody _rb;
     public bool isSelected;
+
+    private void Start()
+    {
+        _ingredientThrow = GetComponent<IngredientThrow>();
+        _ingredientSelect = GetComponent<IngredientSelect>();
+        _rb = GetComponent<Rigidbody>();
+    }
 
     private void OnMouseDown()
     {
@@ -32,8 +40,8 @@ public class IngredientMovement : MonoBehaviour
             transform.DOMoveZ(floatDensity, floatTime).OnComplete(() => { mOffset.z = floatDensity; });
             //End Floating
 
-            ingredientThrow.isObjectActive = true;
-            ingredientSelect.isObjectActive = true;
+            _ingredientThrow.isObjectThrowable = true;
+            _ingredientSelect.isObjectSelectable = true;
         }
     }
 
@@ -96,4 +104,18 @@ public class IngredientMovement : MonoBehaviour
     {
         DOTween.KillAll();
     }
+
+    public void ThrowBack()
+    {
+        _rb.isKinematic = false;
+        _rb.AddForce(0, 5, 0, ForceMode.Impulse);
+        Invoke(nameof(KeepTheBorder), 1f);
+    }
+
+    private void KeepTheBorder()
+    {
+        isSelected = false;
+    }
+
+
 }

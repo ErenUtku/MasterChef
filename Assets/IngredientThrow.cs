@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class IngredientThrow : MonoBehaviour
 {
-    [SerializeField] private Rigidbody rb;
-    [SerializeField] private IngredientMovement ingredientMovement;
+    public bool isObjectThrowable;
 
-    public Vector3 startPosition;
-
-    public bool isObjectActive;
-
+    private Rigidbody _rb;
+    private IngredientMovement _ingredientMovement;
+    private Vector3 startPosition;
     private float delayTime = 0.01f;
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+        _ingredientMovement = GetComponent<IngredientMovement>();
+    }
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && isObjectActive)
+        if (Input.GetMouseButton(0) && isObjectThrowable)
         {       
             CalculateCurrentPosition();
         }
@@ -25,14 +28,14 @@ public class IngredientThrow : MonoBehaviour
         Vector3 mouseDelta = Input.mousePosition - startPosition;
         mouseDelta.z = 0;
 
-        if (isObjectActive)
+        if (isObjectThrowable)
         {
-            if (!ingredientMovement.isSelected)
+            if (!_ingredientMovement.isSelected)
             {
-                rb.AddForce(mouseDelta);
+                _rb.AddForce(mouseDelta);
             }
 
-            isObjectActive = false;
+            isObjectThrowable = false;
             delayTime = 0.01f;
 
         }
