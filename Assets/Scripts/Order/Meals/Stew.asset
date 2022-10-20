@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e199065cdfcc45841aca966fbcd9fb44, type: 3}
+  m_Name: Stew
+  m_EditorClassIdentifier: 
+  receiptName: Stew
+  ingredients:
+  - ingredientData: {fileID: 11400000, guid: 177689f59711167478089c729b38f76f, type: 2}
+    amount: 4
+  - ingredientData: {fileID: 11400000, guid: 310498ebe3940e74681c74dd5cbedab4, type: 2}
+    amount: 1
+  - ingredientData: {fileID: 11400000, guid: 5e05768f28cb5114e8be09a2e20583f6, type: 2}
+    amount: 2

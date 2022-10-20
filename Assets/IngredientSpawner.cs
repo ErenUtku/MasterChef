@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class IngredientSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private SpawnableIngredient[] spawnableIngredient;
+
+    private LevelFacade levelfacade;
+    private void Start()
     {
-        
+        levelfacade = LevelFacade.instance;
+        SpawnAllIngredient();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SpawnAllIngredient()
     {
-        
+        foreach (var ingredient in spawnableIngredient)
+        {
+            for (int i = 0; i < ingredient.spawnAmount; i++)
+            {
+                var RandomSeedX = Random.Range((-levelfacade.BorderX()), levelfacade.BorderX());
+                var RandomSeedY = Random.Range(-levelfacade.BorderY(),levelfacade.BorderY());
+                var SpawnLocation = new Vector3(RandomSeedX, RandomSeedY, 2);
+                var SpawnedIngredient = Instantiate(ingredient.spawnIngredient, SpawnLocation, Quaternion.identity);
+                SpawnedIngredient.transform.parent = this.transform;
+            }
+        }
     }
 }

@@ -8,22 +8,37 @@ public class IngredientMovement : MonoBehaviour
     private IngredientThrow _ingredientThrow;
     private IngredientSelect _ingredientSelect;
 
-    [Header("Floating Values")]
-    [SerializeField] private float floatDensity = -2f;
-    [SerializeField] private float floatTime = 0.5f;
+    [Header("Border and Float values")]
+    private float floatDensity;
+    private float floatTime;
 
     [Header("Border Values")]
-    [SerializeField] private float borderX = 2.5f;
-    [SerializeField] private float borderY = 3f;
+    private float borderX = 2.5f;
+    private float borderY = 3f;
 
+    [Header("Z offsets")]
     private Vector3 mOffset;
     private float mZCoord;
 
     private Rigidbody _rb;
+
     public bool isSelected;
+
+    private LevelFacade levelFacade;
 
     private void Start()
     {
+        levelFacade = LevelFacade.instance;
+
+        #region BORDERS
+
+        floatDensity = levelFacade.FloatDensity();
+        floatTime = levelFacade.FloatTime();
+        borderX = levelFacade.BorderX();
+        borderY = levelFacade.BorderY();
+
+        #endregion
+
         _ingredientThrow = GetComponent<IngredientThrow>();
         _ingredientSelect = GetComponent<IngredientSelect>();
         _rb = GetComponent<Rigidbody>();
@@ -87,6 +102,7 @@ public class IngredientMovement : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, -borderY, transform.position.z);
         }
+
         #endregion
 
     }

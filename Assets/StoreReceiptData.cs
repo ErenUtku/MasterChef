@@ -19,14 +19,14 @@ namespace Data
         {
             instance = this;
 
-            BringOldReceiptData();
+            GameStartData();
 
             var jsonString = JsonConvert.SerializeObject(receiptData);
 
             PlayerPrefs.SetString("Save Data", jsonString);
         }
 
-        private void BringOldReceiptData()
+        private void GameStartData()
         {
             var jsonString = PlayerPrefs.GetString("Save Data");
 
@@ -43,6 +43,17 @@ namespace Data
             defaultReceipt = data;
 
 
+        }
+
+        public void BringReceiptDataAndDelete()
+        {
+            var jsonString = PlayerPrefs.GetString("Save Data");
+
+            var data = JsonConvert.DeserializeObject<Receipt>(jsonString);
+
+            receiptData = data;
+
+            PlayerPrefs.DeleteAll();
         }
     }
 }
