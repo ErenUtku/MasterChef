@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7730b41bc91793f42a75d8f29ba88430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  receipt: {fileID: 11400000, guid: ffd2ecc4a8d949247aa6007b470cc5f8, type: 2}
   levelIndex: 0
   levelNumber: 112
   floatDensity: -0.1

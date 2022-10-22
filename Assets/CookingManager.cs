@@ -52,6 +52,7 @@ public class CookingManager : MonoBehaviour
         if (CookingIsDone(receiptData.ingredients))
         {
             Debug.Log("Level finished");
+            UIManager.instance.LevelEndScreen(true);
             return;
         }
 

@@ -1,5 +1,6 @@
 using Storage;
 using UnityEngine;
+using Data;
 
 namespace Controllers
 {
@@ -130,6 +131,10 @@ namespace Controllers
             PlayerPrefsController.SetLevelNumber(PlayerPrefsController.GetLevelNumber() + 1);
 
             OnLevelComplete?.Invoke(_activeLevel.GetComponent<LevelFacade>());
+
+            StoreReceiptData.instance.BringReceiptDataAndDelete();
+
+            Application.LoadLevel(Application.loadedLevel);
         }
 
         /// <summary>

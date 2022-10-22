@@ -35,7 +35,12 @@ namespace Data
 
             if (jsonString == "")
             {
-                receiptData = defaultReceipt;
+                var dataDefaultSErialize = JsonConvert.SerializeObject(defaultReceipt);
+
+                var data2 = JsonConvert.DeserializeObject<Receipt>(dataDefaultSErialize);
+
+                receiptData = data2;
+                
                 return;
             }
             
@@ -43,23 +48,18 @@ namespace Data
             receiptData = data;
             defaultReceipt = data;
         }
+        
 
-        private void OnDestroy()
-        {
-            var jsonString = PlayerPrefs.GetString("Save Data");
-            Debug.Log(jsonString);
-            BringReceiptDataAndDelete();
-        }
-
-        private void BringReceiptDataAndDelete()
+        public void BringReceiptDataAndDelete()
         {
             var jsonString = PlayerPrefs.GetString("Save Data");
 
             var data = JsonConvert.DeserializeObject<Receipt>(jsonString);
 
             receiptData = data;
-            
+            defaultReceipt = data;
 
+            PlayerPrefs.DeleteKey("Save Data");
         }
     }
 }

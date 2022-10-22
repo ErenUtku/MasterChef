@@ -8,6 +8,9 @@ using Data;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("UI Elements")]
+    [SerializeField] private GameObject levelEndUI;
+
     [SerializeField] private TextMeshProUGUI orderName;
     [SerializeField] private IngredientsSpriteManager spriteManager;
 
@@ -40,6 +43,11 @@ public class UIManager : MonoBehaviour
 
             Ingredient.GetComponentInChildren<TextMeshProUGUI>().text = ($"x" +item.amount.ToString());
         }
+    }
+
+    public void LevelEndScreen(bool value)
+    {
+        levelEndUI.SetActive(value);
     }
 
 }
