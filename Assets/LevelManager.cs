@@ -98,6 +98,8 @@ namespace Controllers
         {
             _activeLevel = Instantiate(GetLevel(), levelSpawnPoint.transform, false);
             OnLevelLoad?.Invoke(_activeLevel.GetComponent<LevelFacade>());
+
+            UIManager.instance.SetReceiptUI();
         }
 
         /// <summary>

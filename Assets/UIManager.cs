@@ -16,7 +16,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject ingredientPrefab;
 
     private Receipt levelReceipt;
-    private void Start()
+
+    public static UIManager instance;
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    public void SetReceiptUI()
     {
         levelReceipt = StoreReceiptData.instance.receiptData;
         InstantiateReceipt(levelReceipt);
