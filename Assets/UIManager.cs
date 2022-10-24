@@ -18,6 +18,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject receiptFolder;
     [SerializeField] private GameObject ingredientPrefab;
 
+    [Header("Timer")]
+    [SerializeField] private TextMeshProUGUI timerText;
+
     private Receipt levelReceipt;
 
     public static UIManager instance;
@@ -48,6 +51,11 @@ public class UIManager : MonoBehaviour
     public void LevelEndScreen(bool value)
     {
         levelEndUI.SetActive(value);
+    }
+
+    public void UpdateTimer(string value)
+    {
+        timerText.text = value;
     }
 
 }

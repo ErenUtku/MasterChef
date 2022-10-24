@@ -18,6 +18,9 @@ public class LevelFacade : MonoBehaviour
     [SerializeField] private float borderX = 2.5f;
     [SerializeField] private float borderY = 3f;
 
+    [Header("Level Difficulty")]
+    [SerializeField] private float timeLeft = 80;
+
     public GameObject targetPanTransform;
 
     public static LevelFacade instance;
@@ -40,8 +43,14 @@ public class LevelFacade : MonoBehaviour
     {
         return borderX;
     }
+
     public float BorderY()
     {
         return borderY;
+    }
+
+    public float TimeLeft()
+    {
+        return timeLeft;
     }
 }

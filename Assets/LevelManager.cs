@@ -36,7 +36,7 @@ namespace Controllers
 
         #region PUBLIC FIELDS / PROPS
 
-        public static LevelManager Instance { get; private set; }
+        public static LevelManager instance { get; private set; }
 
         #endregion
 
@@ -152,7 +152,7 @@ namespace Controllers
         private void Awake()
         {
             CheckRepeatLevelIndex();
-            Instance = this;
+            instance = this;
         }
 
         private void Start() => LevelLoad();

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 public class IngredientMovement : MonoBehaviour
 {
     [Header("Items Alt Movements")]
@@ -26,6 +27,9 @@ public class IngredientMovement : MonoBehaviour
 
     private LevelFacade levelFacade;
 
+    private Sequence mySequence;
+    private Guid uid;
+
     private void Start()
     {
         levelFacade = LevelFacade.instance;
@@ -41,18 +45,32 @@ public class IngredientMovement : MonoBehaviour
 
         _ingredientThrow = GetComponent<IngredientThrow>();
         _ingredientSelect = GetComponent<IngredientSelect>();
-        _rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();   
     }
 
     private void OnMouseDown()
     {
+        
         if (!isSelected)
         {
             mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
             mOffset = gameObject.transform.position - GetMouseWorldPos();
-            
-            //Floating
-            transform.DOMoveZ(floatDensity, floatTime).OnComplete(() => { mOffset.z = floatDensity; });
+
+            //Floating (Creating Sequence with Unique ID)
+
+            if (mySequence == null)
+            {
+                mySequence = DOTween.Sequence();
+
+                mySequence.Append(transform.DOMoveZ(floatDensity, floatTime));
+                //.OnComplete(() => { mOffset.z = floatDensity; });
+
+                uid = System.Guid.NewGuid();
+                mySequence.id = uid;
+            }
+
+            mySequence.Play();
+
             //End Floating
 
             _ingredientThrow.isObjectThrowable = true;
@@ -71,10 +89,7 @@ public class IngredientMovement : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (!isSelected)
-        { 
-            KillDoTweens();
-        }
+        KillSequence();
     }
 
     private void Update()
@@ -116,9 +131,11 @@ public class IngredientMovement : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 
-    public void KillDoTweens()
+    public void KillSequence()
     {
-        DOTween.KillAll();
+        DOTween.Kill(uid);
+        mySequence = null;
+        //DOTween.Kill(mySequence);
     }
 
     public void ThrowBack()

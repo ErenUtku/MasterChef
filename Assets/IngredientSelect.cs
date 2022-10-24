@@ -44,7 +44,6 @@ public class IngredientSelect : MonoBehaviour
             if (clickNumber == 2)
             {
                 _ingredientMovement.isSelected = true;
-                _ingredientMovement.KillDoTweens();
                 
                 transform.DOMove(LevelFacade.instance.targetPanTransform.transform.position, 2f);
 
