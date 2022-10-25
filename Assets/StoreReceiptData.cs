@@ -5,7 +5,7 @@ using System.IO;
 using Newtonsoft.Json;
 using System;
 using Order;
-
+using Controllers;
 namespace Data
 {
     public class StoreReceiptData : MonoBehaviour
@@ -18,6 +18,8 @@ namespace Data
         private void Awake()
         {
             instance = this;
+
+            LevelManager.OnLevelComplete += BringReceiptDataAndDelete;
 
             GameStartData();
 
@@ -48,7 +50,8 @@ namespace Data
             receiptData = data;
             defaultReceipt = data;
         }
-        
+
+        #region EVENT
 
         public void BringReceiptDataAndDelete()
         {
@@ -61,5 +64,7 @@ namespace Data
 
             PlayerPrefs.DeleteKey("Save Data");
         }
+
+        #endregion
     }
 }

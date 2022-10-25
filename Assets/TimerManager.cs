@@ -7,20 +7,28 @@ public class TimerManager : MonoBehaviour
 {
     private UIManager uiManager;
 
-    private float timeLeft;
+    public float timeLeft;
     public bool TimerOn = false;
 
     public static TimerManager instance;
     private void Awake()
     {
         instance = this;
+        LevelManager.OnLevelLoad += LevelLoadTimer;
+        LevelManager.OnLevelComplete += StopTimer;
     }
 
     private void Start()
-    {
+    {     
         uiManager = UIManager.instance;
     }
-  
+
+    private void OnDestroy()
+    {
+        LevelManager.OnLevelLoad -= LevelLoadTimer;
+        LevelManager.OnLevelComplete -= StopTimer;
+    }
+
     private void Update()
     {
         if (TimerOn)
@@ -32,7 +40,7 @@ public class TimerManager : MonoBehaviour
             }
             else
             {
-                LevelManager.instance.LevelFail();
+                LevelManager.OnLevelFail.Invoke();
                 TimerOn = false;
                 return;
             }
@@ -50,19 +58,33 @@ public class TimerManager : MonoBehaviour
         uiManager.UpdateTimer(SetText);
     }
 
-    private void LevelLoadTimer()
+    #region METHODS
+
+    private void SetTimer(float value)
+    {
+        timeLeft = value;
+    }
+
+    private void StartTimer(bool value)
+    {
+        TimerOn = value;
+    }
+
+    #endregion
+
+    #region EVENTS
+
+    public void LevelLoadTimer()
     {
         SetTimer(LevelFacade.instance.TimeLeft());
         StartTimer(true);
     }
 
-    public void SetTimer(float value)
+    public void StopTimer()
     {
-        timeLeft = value;
+        StartTimer(false);
     }
 
-    public void StartTimer(bool value)
-    {
-        TimerOn = value;
-    }
+    #endregion
+
 }

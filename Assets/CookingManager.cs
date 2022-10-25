@@ -4,6 +4,7 @@ using UnityEngine;
 using Order;
 using Items;
 using Data;
+using Controllers;
 public class CookingManager : MonoBehaviour
 {
     private LevelFacade levelFacade;
@@ -34,7 +35,7 @@ public class CookingManager : MonoBehaviour
 
                 if(receiptIngredient.amount == 0)
                 {
-                    Invoke(nameof(CheckCookingDone),2f);
+                    CheckCookingDone();
                 }              
             }
 
@@ -52,7 +53,7 @@ public class CookingManager : MonoBehaviour
         if (CookingIsDone(receiptData.ingredients))
         {
             Debug.Log("Level finished");
-            UIManager.instance.LevelEndScreen(true);
+            Invoke(nameof(LevelFinish), 2f);
             return;
         }
 
@@ -81,5 +82,10 @@ public class CookingManager : MonoBehaviour
         return true;
     }
 
+    private void LevelFinish()
+    {
+        LevelManager.OnLevelComplete.Invoke();
+        UIManager.instance.ShowLevelWinScreen();
+    }
 
 }

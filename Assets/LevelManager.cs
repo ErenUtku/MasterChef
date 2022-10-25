@@ -8,15 +8,15 @@ namespace Controllers
     {
         #region DELEGATE
 
-        public delegate void LevelLoadHandler(LevelFacade levelData);
+        public delegate void LevelLoadHandler();
 
         public delegate void LevelStartHandler(LevelFacade levelData);
 
         public delegate void LevelStageCompleteHandler(LevelFacade levelData, int stageIndex = 0);
 
-        public delegate void LevelCompleteHandler(LevelFacade levelData);
+        public delegate void LevelCompleteHandler();
 
-        public delegate void LevelFailHandler(LevelFacade levelData);
+        public delegate void LevelFailHandler();
 
         #endregion
 
@@ -98,9 +98,7 @@ namespace Controllers
         public void LevelLoad()
         {
             _activeLevel = Instantiate(GetLevel(), levelSpawnPoint.transform, false);
-            OnLevelLoad?.Invoke(_activeLevel.GetComponent<LevelFacade>());
-
-            UIManager.instance.SetReceiptUI();
+            OnLevelLoad?.Invoke();           
         }
 
         /// <summary>
@@ -128,11 +126,7 @@ namespace Controllers
             PlayerPrefsController.SetLevelIndex(PlayerPrefsController.GetLevelIndex() + 1);
 
             // Sonraki level numaras? atan?yor
-            PlayerPrefsController.SetLevelNumber(PlayerPrefsController.GetLevelNumber() + 1);
-
-            OnLevelComplete?.Invoke(_activeLevel.GetComponent<LevelFacade>());
-
-            StoreReceiptData.instance.BringReceiptDataAndDelete();
+            PlayerPrefsController.SetLevelNumber(PlayerPrefsController.GetLevelNumber() + 1);         
 
             Application.LoadLevel(Application.loadedLevel);
         }
@@ -142,7 +136,7 @@ namespace Controllers
         /// </summary>
         public void LevelFail()
         {
-            OnLevelFail?.Invoke(_activeLevel.GetComponent<LevelFacade>());
+            Application.LoadLevel(Application.loadedLevel);
         }
 
         #endregion
