@@ -167,7 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 496955561892dc34eb1d162eb443418b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultReceipt: {fileID: 11400000, guid: ffd2ecc4a8d949247aa6007b470cc5f8, type: 2}
+  allDefaultReceipts:
+  - {fileID: 11400000, guid: ffd2ecc4a8d949247aa6007b470cc5f8, type: 2}
+  - {fileID: 11400000, guid: 8dd9d73f08a2a334d9f953006f0ac885, type: 2}
   receiptData: {fileID: 0}
 --- !u!1 &197509267045685143
 GameObject:
@@ -222,7 +224,7 @@ MonoBehaviour:
   floatTime: 0.5
   borderX: 2.5
   borderY: 2.5
-  timeLeft: 30
+  timeLeft: 90
   targetPanTransform: {fileID: 197509266227703802}
 --- !u!1 &197509267898763959
 GameObject:
@@ -270,8 +272,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnableIngredient:
   - spawnIngredient: {fileID: 8861011417543085412, guid: 30905ae7cf2a6454d80b7a4cc89a86e0, type: 3}
-    spawnAmount: 2
+    spawnAmount: 5
   - spawnIngredient: {fileID: 8290092831393036449, guid: 4949846fe675ff14aac19ed0112987f6, type: 3}
-    spawnAmount: 1
+    spawnAmount: 5
   - spawnIngredient: {fileID: 2548594934143818198, guid: e3a6e00c5a1db654aa0f0c2d2d8f4276, type: 3}
-    spawnAmount: 1
+    spawnAmount: 5
+  - spawnIngredient: {fileID: 3085559133907862070, guid: e925804634f18e947bc7ff7daa23414c, type: 3}
+    spawnAmount: 5
+  - spawnIngredient: {fileID: 1141242234217587921, guid: 9cdc444d60799994f84778a1d08bc448, type: 3}
+    spawnAmount: 5

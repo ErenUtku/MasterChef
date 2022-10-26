@@ -26,7 +26,7 @@ namespace Controllers
         
         public static LevelStartHandler OnLevelStart;
         
-        public static LevelStageCompleteHandler OnLevelStageComplete;
+        public static LevelStageCompleteHandler OnLevelReceiptComplete;
         
         public static LevelCompleteHandler OnLevelComplete;
         
@@ -112,9 +112,9 @@ namespace Controllers
         /// <summary>
         /// Yüklenen level içerisinde stage'ler var ise her stage tamamland???nda ça?r?lacak methods
         /// </summary>
-        public void LevelStageComplete()
+        public void LevelReceiptComplete()
         {
-            OnLevelStageComplete?.Invoke();
+            StoreReceiptData.instance.GoToNextReceipt();
         }
 
         /// <summary>

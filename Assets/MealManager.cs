@@ -22,14 +22,17 @@ public class MealManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
         LevelManager.OnLevelLoad += FindMeal;
-        LevelManager.OnLevelComplete += CreateMeal;
+
+        LevelManager.OnLevelReceiptComplete += CreateMeal;
     }
 
     private void OnDestroy()
     {
         LevelManager.OnLevelLoad -= FindMeal;
-        LevelManager.OnLevelComplete -= CreateMeal;
+        
+        LevelManager.OnLevelReceiptComplete -= CreateMeal;
     }
 
     public void FindMeal()
@@ -56,20 +59,23 @@ public class MealManager : MonoBehaviour
                 {
                     var meal = Instantiate(levelMeal, levelFacade.targetPanTransform.transform.position, Quaternion.identity);
                     meal.transform.DORotate(new Vector3(0, 0, 360), 2f, RotateMode.FastBeyond360).SetLoops(-1).SetEase(Ease.Linear);
-                    StartCoroutine(InstantiateCoins());                   
+                    
+                    StartCoroutine(InstantiateCoins(meal));
+                    slicedIngredients.Clear();
                 }
-
+              
                 Destroy(slicedObj.gameObject);
             });
-        }
+        }      
+        
     }
 
-    public void AddToArray(SlicedIngredient obj)
+    public void AddToList(SlicedIngredient obj)
     {
         slicedIngredients.Add(obj);
     }
 
-    IEnumerator InstantiateCoins()
+    IEnumerator InstantiateCoins(GameObject meal)
     {
         for (int i = 0; i < mealPrice; i++)
         {
@@ -77,6 +83,7 @@ public class MealManager : MonoBehaviour
             if (mealPrice - 1 == i)
             {
                 coin.GetComponent<CoinMovement>().lastCoin = true;
+                meal.transform.DOMoveX(-5, 2f).OnComplete(() => Destroy(meal.gameObject));
             }
             yield return new WaitForSeconds(0.1f);
         }

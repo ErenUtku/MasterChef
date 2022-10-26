@@ -11,8 +11,9 @@ namespace Data
     public class StoreReceiptData : MonoBehaviour
     {
         [Header("ReceiptData")]
-        [SerializeField] private Receipt defaultReceipt;
-        [HideInInspector] public Receipt receiptData;
+        [SerializeField] private List<Receipt> allDefaultReceipts;
+        private List<Receipt> allReceiptsData;
+        public Receipt receiptData;
 
         public static StoreReceiptData instance;
         private void Awake()
@@ -23,32 +24,33 @@ namespace Data
 
             GameStartData();
 
-            var jsonString = JsonConvert.SerializeObject(receiptData);
+            var jsonString = JsonConvert.SerializeObject(allReceiptsData);
 
             PlayerPrefs.SetString("Save Data", jsonString);
-            
+
+            receiptData = allReceiptsData[0];
         }
 
         private void GameStartData()
         {
             var jsonString = PlayerPrefs.GetString("Save Data");
 
-            var data = JsonConvert.DeserializeObject<Receipt>(jsonString);
+            var data = JsonConvert.DeserializeObject<List<Receipt>>(jsonString);
 
             if (jsonString == "")
             {
-                var dataDefaultSErialize = JsonConvert.SerializeObject(defaultReceipt);
+                var dataDefaultSErialize = JsonConvert.SerializeObject(allDefaultReceipts);
 
-                var data2 = JsonConvert.DeserializeObject<Receipt>(dataDefaultSErialize);
+                var data2 = JsonConvert.DeserializeObject<List<Receipt>>(dataDefaultSErialize);
 
-                receiptData = data2;
+                allReceiptsData = data2;
                 
                 return;
             }
-            
-            receiptData = null;
-            receiptData = data;
-            defaultReceipt = data;
+
+            allReceiptsData = null;
+            allReceiptsData = data;
+            allDefaultReceipts = data;
         }
 
         #region EVENT
@@ -57,12 +59,27 @@ namespace Data
         {
             var jsonString = PlayerPrefs.GetString("Save Data");
 
-            var data = JsonConvert.DeserializeObject<Receipt>(jsonString);
+            var data = JsonConvert.DeserializeObject<List<Receipt>>(jsonString);
 
-            receiptData = data;
-            defaultReceipt = data;
+            allReceiptsData = data;
+            allDefaultReceipts = data;
 
             PlayerPrefs.DeleteKey("Save Data");
+        }
+
+        public void GoToNextReceipt()
+        {
+            allReceiptsData.RemoveAt(0);
+
+            if (allReceiptsData.Count == 0)
+            {
+                LevelManager.OnLevelReceiptComplete.Invoke();
+                return;
+            }
+
+            receiptData = allReceiptsData[0];
+
+            LevelManager.OnLevelReceiptComplete.Invoke();
         }
 
         #endregion

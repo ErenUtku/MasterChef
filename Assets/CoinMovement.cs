@@ -23,13 +23,23 @@ public class CoinMovement : MonoBehaviour
         var position = target.position;
         targetPos = (new Vector3(position.x, position.y, cam.transform.position.z * -1));
         transform.DOMove(targetPos, 1f).SetEase(Ease.Linear).OnComplete(() =>
-        {
+        {      
+            UIManager.instance.AddCoin(1);
+
             if (lastCoin)
             {
-                LevelManager.OnLevelStageComplete.Invoke();
+                if (Data.StoreReceiptData.instance.receiptData == null)
+                {
+                    LevelManager.OnLevelComplete.Invoke();
+                    return;
+                }
+
+                else
+                {
+                    MealManager.instance.FindMeal();
+                }
             }
 
-            UIManager.instance.AddCoin(1);
             Destroy(this.gameObject);
         });
     }

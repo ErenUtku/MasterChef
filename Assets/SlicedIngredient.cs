@@ -6,6 +6,6 @@ public class SlicedIngredient : MonoBehaviour
 {
     private void OnEnable()
     {
-        MealManager.instance.AddToArray(this);
+        MealManager.instance.AddToList(this);
     }
 }

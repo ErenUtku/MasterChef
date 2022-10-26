@@ -8,17 +8,15 @@ using Controllers;
 public class CookingManager : MonoBehaviour
 {
     private LevelFacade levelFacade;
-    private Receipt receiptData;
 
     private void Start()
     {
         levelFacade = LevelFacade.instance;
-        receiptData = StoreReceiptData.instance.receiptData;
     }
 
     public void CheckIngredient(Ingredient ingredient)
     {
-        foreach (var receiptIngredient in receiptData.ingredients)
+        foreach (var receiptIngredient in StoreReceiptData.instance.receiptData.ingredients)
         {
             if(ingredient.ingredientData.ingredientName == receiptIngredient.ingredientData.ingredientName)
             {
@@ -36,11 +34,12 @@ public class CookingManager : MonoBehaviour
                 if(receiptIngredient.amount == 0)
                 {
                     CheckCookingDone();
-                }              
-            }
-
-            
+                    return;
+                }                
+            }          
         }
+
+        ThrowObjectBack(ingredient);
     }
 
     private void DecreaseAmount(IngredientAmount value,Ingredient ingredient)
@@ -53,10 +52,10 @@ public class CookingManager : MonoBehaviour
 
     private void CheckCookingDone()
     {
-        if (CookingIsDone(receiptData.ingredients))
+        if (CookingIsDone(StoreReceiptData.instance.receiptData.ingredients))
         {
-            Debug.Log("Level finished");
-            Invoke(nameof(LevelFinish), 2f);
+            Debug.Log("Receipt finished");
+            Invoke(nameof(ReceiptDone), 2f);
             return;
         }
 
@@ -85,9 +84,9 @@ public class CookingManager : MonoBehaviour
         return true;
     }
 
-    private void LevelFinish()
+    private void ReceiptDone()
     {
-        LevelManager.OnLevelComplete.Invoke();
+        LevelManager.instance.LevelReceiptComplete();
     }
 
 }

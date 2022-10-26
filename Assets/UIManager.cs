@@ -40,28 +40,40 @@ public class UIManager : MonoBehaviour
         instance = this;
         LevelManager.OnLevelLoad += SetReceiptUI;
         LevelManager.OnLevelLoad += GetLevelCount;
+
         LevelManager.OnLevelFail += ShowLevelLoseScreen;
-        LevelManager.OnLevelStageComplete += ShowLevelWinScreen;
+
+        LevelManager.OnLevelReceiptComplete += SetReceiptUI;
+
+        LevelManager.OnLevelComplete += ShowLevelWinScreen;
+
     }
 
     private void OnDestroy()
     {
         LevelManager.OnLevelLoad -= SetReceiptUI;
         LevelManager.OnLevelLoad -= GetLevelCount;
+
         LevelManager.OnLevelFail -= ShowLevelLoseScreen;
-        LevelManager.OnLevelStageComplete -= ShowLevelWinScreen;
+
+        LevelManager.OnLevelReceiptComplete -= SetReceiptUI;
+
+        LevelManager.OnLevelComplete -= ShowLevelWinScreen;
     }
 
     private void Start()
     {     
         GetTotalCurrency();
     }
-
-
     
 
     private void InstantiateReceipt(Receipt order)
     {
+        foreach (Transform child in receiptFolder.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
         foreach (var item in order.ingredients)
         {
             var Ingredient = Instantiate(ingredientPrefab, receiptFolder.transform);
