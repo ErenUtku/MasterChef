@@ -28,10 +28,9 @@ public class CoinMovement : MonoBehaviour
 
             if (lastCoin)
             {
-                if (Data.StoreReceiptData.instance.receiptData == null)
+                if (Data.StoreReceiptData.instance.allReceiptsData.Count == 0)
                 {
                     LevelManager.OnLevelComplete.Invoke();
-                    return;
                 }
 
                 else

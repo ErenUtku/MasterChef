@@ -12,7 +12,7 @@ namespace Data
     {
         [Header("ReceiptData")]
         [SerializeField] private List<Receipt> allDefaultReceipts;
-        private List<Receipt> allReceiptsData;
+        public List<Receipt> allReceiptsData;
         public Receipt receiptData;
 
         public static StoreReceiptData instance;
