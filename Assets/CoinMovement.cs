@@ -36,6 +36,7 @@ public class CoinMovement : MonoBehaviour
                 else
                 {
                     MealManager.instance.FindMeal();
+                    UIManager.instance.SetReceiptUI();
                 }
             }
 

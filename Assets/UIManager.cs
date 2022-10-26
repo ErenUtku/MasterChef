@@ -43,8 +43,6 @@ public class UIManager : MonoBehaviour
 
         LevelManager.OnLevelFail += ShowLevelLoseScreen;
 
-        LevelManager.OnLevelReceiptComplete += SetReceiptUI;
-
         LevelManager.OnLevelComplete += ShowLevelWinScreen;
 
     }
@@ -55,9 +53,7 @@ public class UIManager : MonoBehaviour
         LevelManager.OnLevelLoad -= GetLevelCount;
 
         LevelManager.OnLevelFail -= ShowLevelLoseScreen;
-
-        LevelManager.OnLevelReceiptComplete -= SetReceiptUI;
-
+        
         LevelManager.OnLevelComplete -= ShowLevelWinScreen;
     }
 
