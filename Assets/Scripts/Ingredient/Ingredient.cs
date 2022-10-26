@@ -10,5 +10,7 @@ namespace Items
     public class Ingredient : MonoBehaviour
     {
         public IngredientData ingredientData;
+
+        public SlicedIngredient ingredientSliced;
     }
 }

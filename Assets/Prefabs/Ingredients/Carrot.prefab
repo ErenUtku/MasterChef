@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2421189491465787532}
-  - component: {fileID: 4715999141257384782}
   - component: {fileID: 153907805354866113}
   - component: {fileID: 3976901606264280251}
   - component: {fileID: 2914973612712641020}
   - component: {fileID: 5335045017998234395}
+  - component: {fileID: 4715999141257384782}
   m_Layer: 0
   m_Name: Carrot
   m_TagString: Untagged
@@ -37,22 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &4715999141257384782
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3085559133907862070}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &153907805354866113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,6 +89,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientData: {fileID: 11400000, guid: 5e05768f28cb5114e8be09a2e20583f6, type: 2}
+  ingredientSliced: {fileID: -3737131882474513729, guid: 3523d26af15b9cb44bee2f9880b0cc31, type: 3}
+--- !u!54 &4715999141257384782
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3085559133907862070}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3287365987565128963
 GameObject:
   m_ObjectHideFlags: 0

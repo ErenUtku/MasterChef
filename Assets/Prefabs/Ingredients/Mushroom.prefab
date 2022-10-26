@@ -301,6 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientData: {fileID: 11400000, guid: 177689f59711167478089c729b38f76f, type: 2}
+  ingredientSliced: {fileID: -3737131882474513729, guid: 84fc65723a9d96040acc4c7556c1292b, type: 3}
 --- !u!1 &3446987271612919372
 GameObject:
   m_ObjectHideFlags: 0

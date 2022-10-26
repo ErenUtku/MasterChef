@@ -12,7 +12,7 @@ namespace Controllers
 
         public delegate void LevelStartHandler(LevelFacade levelData);
 
-        public delegate void LevelStageCompleteHandler(LevelFacade levelData, int stageIndex = 0);
+        public delegate void LevelStageCompleteHandler();
 
         public delegate void LevelCompleteHandler();
 
@@ -112,9 +112,9 @@ namespace Controllers
         /// <summary>
         /// Yüklenen level içerisinde stage'ler var ise her stage tamamland???nda ça?r?lacak methods
         /// </summary>
-        public void LevelStageComplete(int stageIndex = 0)
+        public void LevelStageComplete()
         {
-            OnLevelStageComplete?.Invoke(_activeLevel.GetComponent<LevelFacade>(), stageIndex);
+            OnLevelStageComplete?.Invoke();
         }
 
         /// <summary>

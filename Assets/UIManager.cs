@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject levelLoseUI;
 
     [Header("Coin")]
+    [SerializeField] private GameObject coinSprite;
     [SerializeField] private TextMeshProUGUI coinText;
 
     [Header("Level")]
@@ -39,16 +40,16 @@ public class UIManager : MonoBehaviour
         instance = this;
         LevelManager.OnLevelLoad += SetReceiptUI;
         LevelManager.OnLevelLoad += GetLevelCount;
-        LevelManager.OnLevelComplete += ShowLevelWinScreen;
         LevelManager.OnLevelFail += ShowLevelLoseScreen;
+        LevelManager.OnLevelStageComplete += ShowLevelWinScreen;
     }
 
     private void OnDestroy()
     {
         LevelManager.OnLevelLoad -= SetReceiptUI;
         LevelManager.OnLevelLoad -= GetLevelCount;
-        LevelManager.OnLevelComplete -= ShowLevelWinScreen;
         LevelManager.OnLevelFail -= ShowLevelLoseScreen;
+        LevelManager.OnLevelStageComplete -= ShowLevelWinScreen;
     }
 
     private void Start()
@@ -117,6 +118,11 @@ public class UIManager : MonoBehaviour
     public void GetTotalCurrency()
     {
         coinText.text = PlayerPrefsController.GetTotalCurrency().ToString();
+    }
+
+    public Transform GetCoinPos()
+    {
+        return coinSprite.transform;
     }
 
 #region EVENTS

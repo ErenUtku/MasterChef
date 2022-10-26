@@ -30,7 +30,7 @@ public class CookingManager : MonoBehaviour
 
                 if (receiptIngredient.amount > 0)
                 {
-                    DecreaseAmount(receiptIngredient);
+                    DecreaseAmount(receiptIngredient,ingredient);
                 }
 
                 if(receiptIngredient.amount == 0)
@@ -43,9 +43,12 @@ public class CookingManager : MonoBehaviour
         }
     }
 
-    private void DecreaseAmount(IngredientAmount ingredient)
+    private void DecreaseAmount(IngredientAmount value,Ingredient ingredient)
     {
-        ingredient.amount--;
+        value.amount--;
+        Destroy(ingredient.gameObject);
+
+        var IngredientSliced = Instantiate(ingredient.ingredientSliced.gameObject, transform.position, Quaternion.identity);
     }
 
     private void CheckCookingDone()
@@ -85,7 +88,6 @@ public class CookingManager : MonoBehaviour
     private void LevelFinish()
     {
         LevelManager.OnLevelComplete.Invoke();
-        UIManager.instance.ShowLevelWinScreen();
     }
 
 }
