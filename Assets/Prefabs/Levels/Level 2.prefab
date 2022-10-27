@@ -225,7 +225,7 @@ MonoBehaviour:
   floatTime: 0.5
   borderX: 2.5
   borderY: 2.5
-  timeLeft: 30
+  timeLeft: 60
   targetPanTransform: {fileID: 197509266227703802}
 --- !u!1 &197509267898763959
 GameObject:

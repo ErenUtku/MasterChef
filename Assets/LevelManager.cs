@@ -122,11 +122,16 @@ namespace Controllers
         /// </summary>
         public void LevelComplete()
         {
+            Debug.Log(PlayerPrefsController.GetLevelNumber() % 3);
+            if (PlayerPrefsController.GetLevelNumber() % 3 == 0)
+            {
+                PlayerPrefsController.SetLevelChest(1);
+            }
             // Sonraki level index de?eri atan?yor
             PlayerPrefsController.SetLevelIndex(PlayerPrefsController.GetLevelIndex() + 1);
 
             // Sonraki level numaras? atan?yor
-            PlayerPrefsController.SetLevelNumber(PlayerPrefsController.GetLevelNumber() + 1);         
+            PlayerPrefsController.SetLevelNumber(PlayerPrefsController.GetLevelIndex() + 1);         
 
             Application.LoadLevel(Application.loadedLevel);
         }
