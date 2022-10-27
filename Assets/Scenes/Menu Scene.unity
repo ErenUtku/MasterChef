@@ -687,6 +687,11 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!82 &253709302 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5169447983743489373, guid: 11a7ee0d0e367484db00561465db6b81, type: 3}
+  m_PrefabInstance: {fileID: 5169447982934148093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &350668387
 GameObject:
   m_ObjectHideFlags: 0
@@ -3371,6 +3376,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319567173}
   m_CullTransparentMesh: 1
+--- !u!82 &1348934768 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5169447983762961330, guid: 11a7ee0d0e367484db00561465db6b81, type: 3}
+  m_PrefabInstance: {fileID: 5169447982934148093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1350965159
 GameObject:
   m_ObjectHideFlags: 0
@@ -4700,7 +4710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a6bf24fcd019c478ce443e92c89f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 1623088235}
+  slider: {fileID: 1623088235}
 --- !u!1 &1628949059
 GameObject:
   m_ObjectHideFlags: 0
@@ -9049,6 +9059,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5169447982741761034, guid: 11a7ee0d0e367484db00561465db6b81, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 1348934768}
+    - target: {fileID: 5169447982741761034, guid: 11a7ee0d0e367484db00561465db6b81, type: 3}
+      propertyPath: effectsSource
+      value: 
+      objectReference: {fileID: 253709302}
     - target: {fileID: 5169447982741761035, guid: 11a7ee0d0e367484db00561465db6b81, type: 3}
       propertyPath: m_RootOrder
       value: 5
