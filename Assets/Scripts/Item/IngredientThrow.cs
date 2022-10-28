@@ -10,6 +10,7 @@ namespace Item
         private IngredientMovement ingredientMovement;
         private Vector3 startPosition;
         private float delayTime = 0.01f;
+
         private void Start()
         {
             rb = GetComponent<Rigidbody>();

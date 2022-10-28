@@ -35,6 +35,30 @@ public class MenuUIManager : MonoBehaviour
     private int audioClickTime = 0;
     private int musicClickTime = 0;
 
+    #region DELEGATE
+
+    public delegate void CoinSpend();
+
+    #endregion
+
+    #region EVENTS
+
+    public static CoinSpend onCoinSpend;
+
+    #endregion
+
+    public void UICoinSpend()
+    {
+        onCoinSpend?.Invoke();
+    }
+
+
+    public static MenuUIManager Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
         //SHOP

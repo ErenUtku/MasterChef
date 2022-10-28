@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receiptName: Salad
   ingredients:
-  - ingredientData: {fileID: 11400000, guid: 36f85a5301d3c5145a7aa7b571fe3443, type: 2}
+  - ingredientData: {fileID: 11400000, guid: 5e05768f28cb5114e8be09a2e20583f6, type: 2}
     amount: 1
   - ingredientData: {fileID: 11400000, guid: fb063ad6e98f7534cb1ea57c631bdc11, type: 2}
     amount: 1

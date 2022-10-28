@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e199065cdfcc45841aca966fbcd9fb44, type: 3}
   m_Name: Sushi
   m_EditorClassIdentifier: 
-  receiptName: Salad
+  receiptName: Sushi
   ingredients:
   - ingredientData: {fileID: 11400000, guid: 07fd25246ddd31a4eb0789e21b3f2c92, type: 2}
     amount: 1

@@ -19,15 +19,29 @@ namespace UI
             itemValueText = GetComponentInChildren<TextMeshProUGUI>();
             itemValueText.text = ("COST\n" + itemValue);
 
+            MenuUIManager.onCoinSpend += CheckAvailability;
+
+            CheckAvailability();
+        }
+
+        private void OnDestroy()
+        {
+            MenuUIManager.onCoinSpend -= CheckAvailability;
+        }
+
+        private void CheckAvailability()
+        {
             if (Storage.PlayerPrefsController.GetTotalCurrency() < itemValue)
             {
                 itemBtn.interactable = false;
             }
-        } 
-        
+        }
+
         private void RemoveCoin()
         {
             UIManager.instance.RemoveCoin(itemValue);
+            MenuUIManager.Instance.UpdateCurrency();
+            MenuUIManager.Instance.UICoinSpend();
         }
     }
 }

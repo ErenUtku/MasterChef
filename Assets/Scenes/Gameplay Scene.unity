@@ -552,10 +552,6 @@ PrefabInstance:
       propertyPath: levelSpawnPoint
       value: 
       objectReference: {fileID: 1942474194}
-    - target: {fileID: 3105988510671197912, guid: 0f30fdc366e652d4b8cf0a69a3649e4d, type: 3}
-      propertyPath: levelData.Array.data[0]
-      value: 
-      objectReference: {fileID: 197509267045685143, guid: 3a45b6cd12498a24fa07e61a9f9690c6, type: 3}
     - target: {fileID: 3105988511130642531, guid: 0f30fdc366e652d4b8cf0a69a3649e4d, type: 3}
       propertyPath: m_Name
       value: Managers

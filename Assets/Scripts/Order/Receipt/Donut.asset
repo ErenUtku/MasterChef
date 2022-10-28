@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e199065cdfcc45841aca966fbcd9fb44, type: 3}
   m_Name: Donut
   m_EditorClassIdentifier: 
-  receiptName: Corndog
+  receiptName: Donut
   ingredients:
-  - ingredientData: {fileID: 11400000, guid: a790af84291ae224e80825a13b4aa396, type: 2}
+  - ingredientData: {fileID: 11400000, guid: a7d25bf26b6c29e4aa749ec9f0fc72a9, type: 2}
     amount: 4
   - ingredientData: {fileID: 11400000, guid: e6de3e8834d710743ae34323c1fd6d18, type: 2}
     amount: 2

@@ -91,7 +91,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientsSprite:
-  - {fileID: 11400000, guid: 52185bcfa7060a54082a6e3403193796, type: 2}
   - {fileID: 11400000, guid: bc5f1878efe0db349b5079387cb631e6, type: 2}
   - {fileID: 11400000, guid: 15be7b3f294a9234cb9e34ac07a4c346, type: 2}
   - {fileID: 11400000, guid: eb43738f7653ac847807b703904fd718, type: 2}
@@ -99,7 +98,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5b1b116e75b7a1e4a811dff01526a80b, type: 2}
   - {fileID: 11400000, guid: 1eb4d880a3e0e094bb409819cacb5c14, type: 2}
   - {fileID: 11400000, guid: d4b547d0123d65347b82373b3b8ed43e, type: 2}
-  - {fileID: 11400000, guid: 3bf1683710599944db9011b0466c6882, type: 2}
   - {fileID: 11400000, guid: ee1ddd8a574c6634f9cde9ef8fc81e6d, type: 2}
   - {fileID: 11400000, guid: 637c14c1c4557b54890ae53d1a7a564e, type: 2}
   - {fileID: 11400000, guid: f177199ec5074a64d81599b8b4a54d0a, type: 2}
@@ -183,7 +181,7 @@ MonoBehaviour:
   levelSource: {fileID: 3105988510671197912}
   levelSpawnPoint: {fileID: 0}
   loopLevelsStartIndex: 0
-  loopLevelGetRandom: 1
+  loopLevelGetRandom: 0
 --- !u!1 &3105988511130642531
 GameObject:
   m_ObjectHideFlags: 0

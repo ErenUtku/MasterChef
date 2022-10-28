@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receiptName: Nigiri
   ingredients:
-  - ingredientData: {fileID: 11400000, guid: 36f85a5301d3c5145a7aa7b571fe3443, type: 2}
+  - ingredientData: {fileID: 11400000, guid: a1f1806730bc0bb41ae679da81fd8d0d, type: 2}
     amount: 1
   - ingredientData: {fileID: 11400000, guid: f9d54b3a5b82c7246bafc01f1dd387f7, type: 2}
     amount: 2
