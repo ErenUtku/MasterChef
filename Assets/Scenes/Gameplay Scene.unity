@@ -358,11 +358,6 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 7644257981207824820, guid: 396b26b787aa9d94dbc9ed5a68713c22, type: 3}
   m_PrefabInstance: {fileID: 7644257982129071303}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &1019573809 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 5169447983762961330, guid: 11a7ee0d0e367484db00561465db6b81, type: 3}
-  m_PrefabInstance: {fileID: 1231889453}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1231889453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -374,14 +369,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5169447982741761034, guid: 11a7ee0d0e367484db00561465db6b81, type: 3}
-      propertyPath: musicSource
-      value: 
-      objectReference: {fileID: 1019573809}
-    - target: {fileID: 5169447982741761034, guid: 11a7ee0d0e367484db00561465db6b81, type: 3}
-      propertyPath: effectsSource
-      value: 
-      objectReference: {fileID: 1774741582}
     - target: {fileID: 5169447982741761035, guid: 11a7ee0d0e367484db00561465db6b81, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -448,11 +435,6 @@ GameObject:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3405791153342771380, guid: 191e61de56aaf884d820640cb9d58560, type: 3}
   m_PrefabInstance: {fileID: 3405791152719113547}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1774741582 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 5169447983743489373, guid: 11a7ee0d0e367484db00561465db6b81, type: 3}
-  m_PrefabInstance: {fileID: 1231889453}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1795070062 stripped
 GameObject:
@@ -659,10 +641,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3405791152007001950, guid: 191e61de56aaf884d820640cb9d58560, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3405791152053160494, guid: 191e61de56aaf884d820640cb9d58560, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -840,18 +818,6 @@ PrefabInstance:
     - target: {fileID: 7644257981207824819, guid: 396b26b787aa9d94dbc9ed5a68713c22, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7644257981207824820, guid: 396b26b787aa9d94dbc9ed5a68713c22, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.39431944
-      objectReference: {fileID: 0}
-    - target: {fileID: 7644257981207824820, guid: 396b26b787aa9d94dbc9ed5a68713c22, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.49056602
-      objectReference: {fileID: 0}
-    - target: {fileID: 7644257981207824820, guid: 396b26b787aa9d94dbc9ed5a68713c22, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.33090067
       objectReference: {fileID: 0}
     - target: {fileID: 7644257981207824822, guid: 396b26b787aa9d94dbc9ed5a68713c22, type: 3}
       propertyPath: m_Name
