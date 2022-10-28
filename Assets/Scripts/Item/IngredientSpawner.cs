@@ -1,12 +1,12 @@
 using Level;
 using UnityEngine;
 using System.Collections.Generic;
+
 namespace Item
 {
     public class IngredientSpawner : MonoBehaviour
     {
-        [Header("Items(POOLING)")]
-        [SerializeField] private List<GameObject> spawnObjects;
+        [SerializeField] private SpawnableIngredient[] spawnableIngredient;
 
         private LevelFacade levelFacade;
         private void Start()
@@ -17,13 +17,16 @@ namespace Item
 
         private void SpawnAllIngredient()
         {
-            foreach (var objects in spawnObjects)
+            foreach (var ingredient in spawnableIngredient)
             {
-                var randomSeedX = Random.Range((-levelFacade.BorderX()), levelFacade.BorderX());
-                var randomSeedY = Random.Range(-levelFacade.BorderY(), levelFacade.BorderY());
-                var spawnLocation = new Vector3(randomSeedX, randomSeedY, 2);
-                objects.SetActive(true);
-                objects.transform.position = spawnLocation;
+                for (int i = 0; i < ingredient.spawnAmount; i++)
+                {
+                    var randomSeedX = Random.Range((-levelFacade.BorderX()), levelFacade.BorderX());
+                    var randomSeedY = Random.Range(-levelFacade.BorderY(), levelFacade.BorderY());
+                    var spawnLocation = new Vector3(randomSeedX, randomSeedY, 2);
+                    var spawnedIngredient = Instantiate(ingredient.spawnIngredient, spawnLocation, Quaternion.identity);
+                    spawnedIngredient.transform.parent = this.transform;
+                }
             }
         }
     }
