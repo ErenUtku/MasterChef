@@ -5,7 +5,7 @@ namespace Item
 {
     public class IngredientSpawner : MonoBehaviour
     {
-        [Header("Items")]
+        [Header("Items(POOLING)")]
         [SerializeField] private List<GameObject> spawnObjects;
 
         private LevelFacade levelFacade;
