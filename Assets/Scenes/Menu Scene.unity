@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1893,7 +1893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &526037589
 Transform:
   m_ObjectHideFlags: 0
@@ -1921,7 +1921,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dba46a1d1daa7f64189dfee688ed68f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientsSprite: []
+  ingredientsSprite:
+  - {fileID: 11400000, guid: 52185bcfa7060a54082a6e3403193796, type: 2}
+  - {fileID: 11400000, guid: bc5f1878efe0db349b5079387cb631e6, type: 2}
+  - {fileID: 11400000, guid: 15be7b3f294a9234cb9e34ac07a4c346, type: 2}
+  - {fileID: 11400000, guid: eb43738f7653ac847807b703904fd718, type: 2}
+  - {fileID: 11400000, guid: 555b4a82ef916344c87ad358f3d3ff2b, type: 2}
+  - {fileID: 11400000, guid: 5b1b116e75b7a1e4a811dff01526a80b, type: 2}
+  - {fileID: 11400000, guid: 1eb4d880a3e0e094bb409819cacb5c14, type: 2}
+  - {fileID: 11400000, guid: d4b547d0123d65347b82373b3b8ed43e, type: 2}
+  - {fileID: 11400000, guid: 3bf1683710599944db9011b0466c6882, type: 2}
+  - {fileID: 11400000, guid: ee1ddd8a574c6634f9cde9ef8fc81e6d, type: 2}
+  - {fileID: 11400000, guid: 637c14c1c4557b54890ae53d1a7a564e, type: 2}
+  - {fileID: 11400000, guid: f177199ec5074a64d81599b8b4a54d0a, type: 2}
+  - {fileID: 11400000, guid: 6b8c41c1587921d47be5f0d849434b04, type: 2}
+  - {fileID: 11400000, guid: 843ffe41ffa20c747ab4bf0bd50b03d3, type: 2}
+  - {fileID: 11400000, guid: b901b6d33949fba42ac674d29d9feeb1, type: 2}
+  - {fileID: 11400000, guid: 099e89b2420a20d47bde90074974118e, type: 2}
+  - {fileID: 11400000, guid: 47b2fc0cfc3f15c4bad40f10b83b340c, type: 2}
+  - {fileID: 11400000, guid: d452d9eeae7bf5d4e8b5d20ad2537aa8, type: 2}
+  - {fileID: 11400000, guid: f2278e893a771fd4d8a6cd9c154b0a65, type: 2}
 --- !u!1 &539738848
 GameObject:
   m_ObjectHideFlags: 0

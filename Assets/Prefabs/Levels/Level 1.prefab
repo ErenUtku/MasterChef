@@ -302,7 +302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fdf1491efa75ed43991cb5bd907742c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnableIngredientList: []
   spawnObjects:
   - {fileID: 5382820347611403048}
   - {fileID: 8794407770584683915}

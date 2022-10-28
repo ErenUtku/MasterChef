@@ -49,6 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99234738289d5234b96aba3c7814b776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ingredientThrow: {fileID: 3976901606264280251}
+  ingredientSelect: {fileID: 2914973612712641020}
+  rb: {fileID: 4715999141257384782}
   isSelected: 0
 --- !u!114 &3976901606264280251
 MonoBehaviour:
@@ -62,6 +65,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5517c5f850a5d48b04eefa1240dfc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 4715999141257384782}
+  ingredientMovement: {fileID: 153907805354866113}
   isObjectThrowable: 0
 --- !u!114 &2914973612712641020
 MonoBehaviour:
@@ -76,6 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isObjectSelectable: 0
+  ingredientMovement: {fileID: 153907805354866113}
 --- !u!114 &5335045017998234395
 MonoBehaviour:
   m_ObjectHideFlags: 0
